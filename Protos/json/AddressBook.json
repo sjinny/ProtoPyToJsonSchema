@@ -1,0 +1,25 @@
+{
+    "$schema" : "../json_schema/Test.AddressBook.json",
+    "persons": [
+        {
+            "name": "Name1",
+            "address": "address1",
+            "phoneNumber": [
+                {
+                    "type": "PT_HOME",
+                    "number": 123456
+                }
+            ]
+        },
+        {
+            "name": "Name2",
+            "address": "address2",
+            "phoneNumber": [
+                {
+                    "type": "PT_WORK",
+                    "number": 234567
+                }
+            ]
+        }
+    ]
+}

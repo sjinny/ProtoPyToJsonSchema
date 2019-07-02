@@ -1,0 +1,133 @@
+{
+    "$schema" : "http://json-schema.org/schema#",
+    "definitions" : {
+        "TYPE_DOUBLE" : {
+            "type" : "number"
+        },
+        "TYPE_FLOAT" : {
+            "$ref" : "#/definitions/TYPE_DOUBLE"
+        },
+        "TYPE_INT64" : {
+            "type" : "integer",
+            "minimum" : -9223372036854775808,
+            "maximum" : 9223372036854775807
+        },
+        "TYPE_UINT64" : {
+            "type" : "integer",
+            "minimum" : 0,
+            "maximum" : 18446744073709551615
+        },
+        "TYPE_INT32" : {
+            "type" : "integer",
+            "minimum" : -2147483648,
+            "maximum" : 2147483647
+        },
+        "TYPE_FIXED64" : {
+            "$ref" : "#/definitions/TYPE_UINT64"
+        },
+        "TYPE_FIXED32" : {
+            "$ref" : "#/definitions/TYPE_UINT32"
+        },
+        "TYPE_BOOL" : {
+            "type" : "boolean"
+        },
+        "TYPE_STRING" : {
+            "type" : "string"
+        },
+        "TYPE_BYTES" : {
+            "$ref" : "#/definitions/TYPE_STRING"
+        },
+        "TYPE_UINT32" : {
+            "type" : "integer",
+            "minimum" : 0,
+            "maximum" : 4294967295
+        },
+        "TYPE_SFIXED32" : {
+            "$ref" : "#/definitions/TYPE_INT32"
+        },
+        "TYPE_SFIXED64" : {
+            "$ref" : "#/definitions/TYPE_INT64"
+        },
+        "TYPE_SINT32" : {
+            "$ref" : "#/definitions/TYPE_INT32"
+        },
+        "TYPE_SINT64" : {
+            "$ref" : "#/definitions/TYPE_INT64"
+        },
+        "google.protobuf.DoubleValue" : {
+            "$ref" : "#/definitions/TYPE_DOUBLE"
+        },
+        "google.protobuf.FloatValue" : {
+            "$ref" : "#/definitions/TYPE_FLOAT"
+        },
+        "google.protobuf.Int64Value" : {
+            "$ref" : "#/definitions/TYPE_INT64"
+        },
+        "google.protobuf.UInt64Value" : {
+            "$ref" : "#/definitions/TYPE_UINT64"
+        },
+        "google.protobuf.Int32Value" : {
+            "$ref" : "#/definitions/TYPE_INT32"
+        },
+        "google.protobuf.UInt32Value" : {
+            "$ref" : "#/definitions/TYPE_UINT32"
+        },
+        "google.protobuf.BoolValue" : {
+            "$ref" : "#/definitions/TYPE_BOOL"
+        },
+        "google.protobuf.StringValue" : {
+            "$ref" : "#/definitions/TYPE_STRING"
+        },
+        "google.protobuf.BytesValue" : {
+            "$ref" : "#/definitions/TYPE_BYTES"
+        },
+        "Test.AddressBook" : {
+            "type" : "object",
+            "properties" : {
+                "persons" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/Test.Person"
+                    }
+                }
+            }
+        },
+        "Test.Person" : {
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "$ref" : "#/definitions/TYPE_STRING"
+                },
+                "address" : {
+                    "$ref" : "#/definitions/TYPE_STRING"
+                },
+                "phoneNumber" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/Test.PhoneNumber"
+                    }
+                }
+            }
+        },
+        "Test.PhoneNumber" : {
+            "type" : "object",
+            "properties" : {
+                "type" : {
+                    "$ref" : "#/definitions/Test.PhoneNumber.PhoneType"
+                },
+                "number" : {
+                    "$ref" : "#/definitions/TYPE_INT32"
+                }
+            }
+        },
+        "Test.PhoneNumber.PhoneType" : {
+            "type" : "string",
+            "enum" : [
+                "PT_NONE",
+                "PT_WORK",
+                "PT_HOME",
+                "PT_OTHER"
+            ]
+        }
+    }
+}

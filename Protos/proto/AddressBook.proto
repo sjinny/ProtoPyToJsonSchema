@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Test;
+
+import "google/protobuf/wrappers.proto";
+
+
+message PhoneNumber
+{
+    enum PhoneType
+    {
+        PT_NONE  = 0;
+        PT_WORK  = 1;
+        PT_HOME  = 2;
+        PT_OTHER = 3;
+    }
+    PhoneType type   = 1;
+    int32     number = 2;
+}
+
+message Person
+{
+    string               name         = 1;
+    string               address      = 2;
+    repeated PhoneNumber phone_number = 3;
+}
+
+message AddressBook
+{
+    repeated Person persons = 1;
+}
+
+
